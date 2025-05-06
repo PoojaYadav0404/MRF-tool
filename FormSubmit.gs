@@ -21,7 +21,7 @@ function onForm(e){
   GmailApp.sendEmail(to, sub,"", {htmlBody: body, cc:cc});
   tempSheet.getRange("A2").setValue(NewReqNo + 1);
   
-  //if (Session.getActiveUser() == "dme@bajatoparts.com" )
+  //if (Session.getActiveUser() == "" )
   
 }
 
