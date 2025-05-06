@@ -11,7 +11,7 @@ function firstStepApproval(e) {
   var MailId = Session.getActiveUser().getEmail();
 
   
-  if (MailId == "dme@bajatoparts.com" || MailId == "director@bajatoparts.com" || MailId == "rajatbajaj@bajato.com"){
+  if (MailId == "d"){
     if (SSName == ResponseSheet && Col == 18 && Row > 1 && Sheet.getRange(Row,18).getValue()!= ""){
       var Ui = SpreadsheetApp.getUi();
       var ButtonPressed = Ui.alert("Approval Status!", "Are you sure you want to continue?", Ui.ButtonSet.YES_NO_CANCEL);
@@ -70,7 +70,7 @@ function secondStepApproval(e) {
   var SS = SpreadsheetApp.getActiveSpreadsheet();
   var Sheet = SS.getSheetByName("Form responses 1");
   var MailSheet = SS.getSheetByName("Mail temp"); 
-  var PdfFolder = DriveApp.getFolderById("11KwklgVXzDXgAoepp4yO2z_CCfNKwryEIZ3Gu6sNfA7lh08JIV3mBnC2ORcYM268754sD3hd")
+  var PdfFolder = DriveApp.getFolderById("11KwklgVXzDXgAoepp4yO")
   var ActiveCell = e.range;
   var Row = ActiveCell.getRow();
   var Col = ActiveCell.getColumn();
@@ -78,7 +78,7 @@ function secondStepApproval(e) {
   var SSName = ActiveCell.getSheet().getName();
   var MailId = Session.getActiveUser().getEmail();
 
-  if (MailId == "dme@bajatoparts.com"){
+  if (MailId == ""){
     if (SSName == ResponseSheet && Col == 21 && Row > 1 && AppStatus == "Approved" && Sheet.getRange(Row, 17).getValue()!= "" && Sheet.getRange(Row, 21).getValue()!= "" ){
       var Ui = SpreadsheetApp.getUi();
       var ButtonPressed = Ui.alert("Sharing details with Consultant", "Are you sure you want to continue?", Ui.ButtonSet.YES_NO_CANCEL);
@@ -105,7 +105,7 @@ function secondStepApproval(e) {
           htmlBody : body,
           cc: (cc),
           attachments: [PdfFile],
-          name: 'HR BajatoParts'
+          name: 'HR '
       });
         Sheet.getRange(Row, 23).setValue("Details shared " + Utilities.formatDate(new Date(), "GMT+05:30", "dd/MM/yyyy"));
         PdfFile.setTrashed(true);
@@ -139,7 +139,7 @@ function finalStepStatus(e) {
   var AppStatus = Sheet.getRange(Row, 18).getValue();
 
   
-  if (MailId == "dme@bajatoparts.com" ){
+  if (MailId == "" ){
     if (SSName == ResponseSheet && Col == 24 && Row > 1 && AppStatus == "Approved" && Sheet.getRange(Row, 17).getValue()!= "" && Sheet.getRange(Row, 24).getValue()!= ""){
       var Ui = SpreadsheetApp.getUi();
       var ButtonPressed = Ui.alert("Final Status Update!", "Are you sure you want to continue?", Ui.ButtonSet.YES_NO_CANCEL);
